@@ -5,3 +5,6 @@
 
 <!-- app.blade.phpの'content'を呼び出していてyield部分にあたる　bladeの階層で表現？ -->
 @section('cntent')
+<div class="container">
+    
+</div>
