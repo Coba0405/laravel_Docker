@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -42,7 +43,7 @@ class PostController extends Controller
         $post = new Post();
         
         $post->title = $request->title;
-        $post->boby = $request->body;
+        $post->body = $request->body;
         $post->user_id = $id;
         
         // saveで上の内容をデータベース（PostControllerのtable）に保存をする
@@ -80,6 +81,7 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $id = $request->post_id;
         // レコードを検索する
         // railsの @post = Post.find(params[:id])のようなイメージ
         $post = Post::findOrFail($id);

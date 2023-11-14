@@ -14,13 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welc ome');
+    return view('welcome');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resouece('posts','PostController', ['only' => ['index','show','create','store','destroy']]);
+Route::resource('posts','App\Http\Controllers\PostController', ['only' => ['index','show','create','store','destroy']]);
 Route::get('posts/edit/{id}', 'PostController@edit');
 Route::post('posts/edit/{id}', 'PostController@update');
+Route::post('posts/delete/{id}', 'PostController@destroy');
