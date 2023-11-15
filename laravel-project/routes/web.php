@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
+    \Illuminate\Support\Facades\Log::info('New log entry created.');
+
     return view('welcome');
 });
 
